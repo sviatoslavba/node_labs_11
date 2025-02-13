@@ -7,6 +7,9 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.send("Hello 52!");
 })
+app.get("/dynamic", (req, res) => {
+  res.send("Hello 11!");
+})
 
 app.listen(3000, () => {
   console.log("Сервер запущено на http://localhost:3000");
