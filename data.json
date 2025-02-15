@@ -1,10 +1,49 @@
 [
   {
     "id": 0,
-    "fullName": "Fresh Avocados",
-    "from": "Ukraine",
+    "fullName": "Гарковенко Денис",
+    "from": "ІП-33",
     "age": 18,
-    "nutrients": "Vitamin B, Vitamin K",
+    "hobbies": "Vitamin B, Vitamin K",
+    "info": "From?",
+    "description": "Гпт в помощь..."
+  },
 
-    "description": ""
-  }]
+  {
+    "id": 1,
+    "fullName": "Антюк Юлія",
+    "from": "ІП-33",
+    "age": 18,
+    "hobbies": "Vitamin B, Vitamin K",
+    "info": "From?",
+    "description": "Гпт в помощь..."
+  },
+  {
+    "id": 2,
+    "fullName": "Башлик Святослав",
+    "from": "ІП-33",
+    "age": 18,
+    "hobbies": "Vitamin B, Vitamin K",
+    "info": "From?",
+    "description": "Гпт в помощь..."
+  },
+  {
+    "id": 3,
+    "fullName": "Лодатко Олександр",
+    "from": "ІП-33",
+    "age": 18,
+    "hobbies": "Vitamin B, Vitamin K",
+    "info": "From?",
+    "description": "Гпт в помощь..."
+  },
+  {
+    "id": 4,
+    "fullName": "Нечипоренко Олександр",
+    "from": "ІП-33",
+    "age": 18,
+    "hobbies": "Щось додати",
+    "info": "From?",
+    "description": "Гпт в помощь..."
+  }
+
+]
