@@ -4,9 +4,8 @@
     "fullName": "Гарковенко Денис",
     "from": "ІП-33",
     "age": 18,
-    "hobbies": "Vitamin B, Vitamin K",
-    "info": "From?",
-    "description": "Гпт в помощь..."
+    "info": "Kherson, currently Kyiv",
+    "description": "текст текст текст"
   },
 
   {
@@ -14,8 +13,7 @@
     "fullName": "Антюк Юлія",
     "from": "ІП-33",
     "age": 18,
-    "hobbies": "Vitamin B, Vitamin K",
-    "info": "From?",
+    "info": "Dunaivtsi",
     "description": "Гпт в помощь..."
   },
   {
@@ -23,8 +21,7 @@
     "fullName": "Башлик Святослав",
     "from": "ІП-33",
     "age": 18,
-    "hobbies": "Vitamin B, Vitamin K",
-    "info": "From?",
+    "info": "Cherkasy",
     "description": "Гпт в помощь..."
   },
   {
@@ -32,8 +29,7 @@
     "fullName": "Лодатко Олександр",
     "from": "ІП-33",
     "age": 18,
-    "hobbies": "Vitamin B, Vitamin K",
-    "info": "From?",
+    "info": "Mykolaiv",
     "description": "Гпт в помощь..."
   },
   {
@@ -41,8 +37,7 @@
     "fullName": "Нечипоренко Олександр",
     "from": "ІП-33",
     "age": 18,
-    "hobbies": "Щось додати",
-    "info": "From?",
+    "info": "Vinnytsia",
     "description": "Гпт в помощь..."
   }
 

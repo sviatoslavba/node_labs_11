@@ -13,7 +13,7 @@
             href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
     />
 
-    <title>NODE FARM</title>
+    <title>Group 11</title>
 
     <style>
         *,
@@ -35,7 +35,7 @@
             font-family: 'Nunito Sans', sans-serif;
             color: #555;
             min-height: 100vh;
-            background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom right, #5db3e1, #5db3e1);
         }
 
         h1 {
@@ -56,7 +56,7 @@
             position: absolute;
             top: 105%;
             left: 50%;
-            background: linear-gradient(to bottom, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom, #5db3e1, #5db3e1);
             opacity: 0.8;
             z-index: -1;
             transform: skewY(370deg) translate(-50%, -50%);
@@ -89,7 +89,7 @@
         }
 
         .card__title-box {
-            background: linear-gradient(to bottom, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom, #5db3e1, #5db3e1);
             margin-right: auto;
             display: flex;
             align-items: center;
@@ -134,7 +134,7 @@
         .card__link:link,
         .card__link:visited {
             flex: 0 0 auto;
-            background-color: #79e17b;
+            background-color: #0094e3;
             color: white;
             font-size: 1.6rem;
             font-weight: 900;
@@ -150,7 +150,7 @@
 
         .card__link:hover,
         .card__link:active {
-            background-color: #9be15d;
+            background-color: #5db3e1;
         }
 
         .card__link span {
@@ -183,7 +183,28 @@
     <h1>Group 11</h1>
 
     <div class="cards-container">
-        {%PRODUCT_CARDS%}
+        <% people.forEach(person => { %>
+            <div class="card">
+                <div class="card__emoji">👤</div> <!-- Можешь заменить на иконку -->
+                <div class="card__title-box">
+                    <h2 class="card__title"><%= person.fullName %></h2>
+                </div>
+                <div class="card__details">
+                    <div class="card__detail-box">
+                        <p class="card__detail">Группа: <%= person.from %></p>
+                    </div>
+                    <div class="card__detail-box">
+                        <p class="card__detail">Возраст: <%= person.age %></p>
+                    </div>
+                    <div class="card__detail-box">
+                        <p class="card__detail">Город: <%= person.info %></p>
+                    </div>
+                    <a href="/api/group-overview/<%= person.id %>" class="card__link">
+                        <span>Подробнее</span>
+                    </a>
+                </div>
+            </div>
+        <% }); %>
     </div>
 </div>
 </body>
