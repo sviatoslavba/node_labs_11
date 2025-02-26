@@ -1,13 +1,15 @@
-<figure class="card">
+<% people.forEach(person => { %>
+    <figure class="card">
+        <div class="card__title-box">
+            <p class="card__title"><%= person.fullName %></p>
+        </div>
 
+        <div class="card__details">
 
-    <div class="card__title-box">
-        <p class="card__title">{%PRODUCTNAME%}</p>
-    </div>
+        </div>
 
-    <div class="card__details">
-    </div>
-    <a class="card__link" href="/product?id={%ID%}">
-        <span>Detail <i class="emoji-right">👉</i></span>
-    </a>
-</figure>
+        <a class="card__link" href="/product?id=<%= person.id %>">
+            <span>Detail <i class="emoji-right">👉</i></span>
+        </a>
+    </figure>
+<% }) %>
