@@ -13,7 +13,7 @@
             href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png"
     />
 
-    <title>Fresh {%PRODUCTNAME%}} {%IMAGE%} /// NODE FARM</title>
+    <title> <%= fullName %> </title>
 
     <style>
         *,
@@ -35,7 +35,7 @@
             font-family: 'Nunito Sans', sans-serif;
             color: #555;
             min-height: 100vh;
-            background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom right, #0094e3, #5db3e1);
         }
 
         h1 {
@@ -56,7 +56,7 @@
             position: absolute;
             top: 105%;
             left: 50%;
-            background: linear-gradient(to bottom, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom, #0094e3, #5db3e1);
             opacity: 0.8;
             z-index: -1;
             transform: skewY(370deg) translate(-50%, -50%);
@@ -90,7 +90,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: linear-gradient(to left bottom, #9be15d, #00e3ae);
+            background-image: linear-gradient(to left bottom, #5db3e1, #0094e3);
             opacity: 0.5;
             z-index: 100;
         }
@@ -154,7 +154,7 @@
             z-index: 1000;
             height: 11rem;
             width: 11rem;
-            background-image: linear-gradient(to bottom, #9be15d, #00e3ae);
+            background-image: linear-gradient(to bottom, #5db3e1, #0094e3);
             border-radius: 50%;
             transform: rotate(15deg);
             box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
@@ -192,14 +192,14 @@
 
         .product__back:hover,
         .product__back:active {
-            background-color: #79e17b;
+            background-color: #0094e3;
         }
 
         .product__name {
-            background: linear-gradient(to bottom, #9be15d, #00e3ae);
+            background: linear-gradient(to bottom, #0094e3, #5db3e1);
             padding: 1rem;
             font-family: 'Megrim', sans-serif;
-            font-size: 4rem;
+            font-size: 3rem;
             color: white;
             text-align: center;
             word-spacing: 2px;
@@ -223,7 +223,7 @@
         .product__link:link,
         .product__link:visited {
             display: block;
-            background-color: #79e17b;
+            background-color: #0094e3;
             color: white;
             font-size: 1.6rem;
             font-weight: 700;
@@ -241,7 +241,7 @@
 
         .product__link:hover,
         .product__link:active {
-            background-color: #9be15d;
+            background-color: #5db3e1;
             transform: scale(1.1) skewX(-20deg);
         }
 
@@ -274,15 +274,14 @@
             <span class="emoji-left">👈</span>Back
         </a>
 
-        <h2 class="product__name">{%PRODUCTNAME%}</h2>
+        <h2 class="product__name"><%= fullName %></h2>
         <div class="product__details">
-            <p><span class="emoji-left">🌍</span> From {%FROM%}</p>
-            <p><span class="emoji-left">❤️</span> {%NUTRIENTS%}</p>
-            <p><span class="emoji-left">📦</span> {%QUANTITY%}</p>
-            <p><span class="emoji-left">🏷</span> {%PRICE%}€</p>
+            <p><span class="emoji-left">🌍</span>From: <%=info%> </p>
+            <p><span class="emoji-left">❤️</span>Group: <%=from%></p>
+            <p><span class="emoji-left">🏷</span>Age: <%=age%></p>
         </div>
         <p class="product__description">
-            {%DESCRIPTION%}
+            <%=description%>
         </p>
     </figure>
 
