@@ -175,13 +175,22 @@
         .not-organic {
             display: none;
         }
+        .global-link {
+            text-decoration: none;
+            color: inherit;
+
+        }
+        .global-link h1{
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
     </style>
 </head>
 
 <body>
 <div class="container">
+    <a class = "global-link" href="http://roz.kpi.ua">
     <h1>Group 11</h1>
-
+    </a>
     <div class="cards-container">
         <% people.forEach(person => { %>
             <div class="card">
@@ -191,16 +200,16 @@
                 </div>
                 <div class="card__details">
                     <div class="card__detail-box">
-                        <p class="card__detail">Группа: <%= person.from %></p>
+                        <p class="card__detail">Група: <%= person.from %></p>
                     </div>
                     <div class="card__detail-box">
-                        <p class="card__detail">Возраст: <%= person.age %></p>
+                        <p class="card__detail">Вік: <%= person.age %></p>
                     </div>
                     <div class="card__detail-box">
-                        <p class="card__detail">Город: <%= person.info %></p>
+                        <p class="card__detail">Місто: <%= person.info %></p>
                     </div>
                     <a href="/api/group-overview/<%= person.id %>" class="card__link">
-                        <span>Подробнее</span>
+                        <span>Детальніше</span>
                     </a>
                 </div>
             </div>
