@@ -31,6 +31,7 @@ const getPerson = function(req, res){
         info:person.info,
         from:person.from,
         age:person.age,
+        email:person.email,
         description:person.description,
     });
 }
