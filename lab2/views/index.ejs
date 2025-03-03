@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Інформація про студента</title>
+  </head>
+  <body>
+    <h1>Детальна інформація про студента</h1>
+    <p><strong>Ім'я:</strong> <%= student.name %></p>
+    <p><strong>Група:</strong> <%= student.group %></p>
+    <p><strong>Email:</strong> <%= student.email %></p>
+    <img src="<%- student.photo %>" alt="Фото студента" width="200" />
+
+    <a href="/">Назад на головну</a>
+  </body>
+</html>
