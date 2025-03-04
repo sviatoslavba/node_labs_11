@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивна сітка */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item:hover {
+    transform: translateY(-5px); 
+}
+
+.item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 4px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.item h3 {
+    margin: 10px 0;
+    color: #444;
+}
+
+.item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.item a {
+    font-size: 12px;
+    color: #222;
+    line-height: 1.2;
+}
+
+.footer{
+    width: 100%;
+    height: 5%;
+    background-color: #444;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.footer p{
+    font-size: 12px;
+    color: #ddd;
+    line-height: 2;
+}
+
+.member-container img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 4px solid #ddd;
+}
