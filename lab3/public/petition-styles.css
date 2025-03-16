@@ -1,0 +1,163 @@
+.main-header{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-icon{
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+main{
+    padding: 15px 20px;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.create-label{
+    font-size: 18px;
+}
+
+.main-container input{
+    width: 100%;
+    border: 3px solid #007bff;
+    border-radius: 25px;
+    height: 30px;
+    padding: 1%;
+}
+
+.main-container textarea{
+    border: 3px solid #007bff;
+    border-radius: 5px;
+    padding: 1%;
+    min-width: 200px; 
+    max-width: 100%; 
+    min-height: 50vh; 
+    max-height: 800px; 
+    width: 100%;  
+    height: 50vh;
+}
+
+.info-text{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.petition-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn{
+    width: 48%;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.action-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+.action-btn:hover {
+    background: #0056b3;
+}
+
+.cansel-btn{
+    background: none;
+    border: 3px solid #007bff;
+}
+
+.cansel-btn:hover {
+    background: #0056b3;
+    color: white;
+}
+
+.view-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 70vh;
+}
+
+.petition-content{
+    width: 80%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.petition-content p{
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.sidebar{
+    border-left: 3px solid #007bff;
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-info{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sign-progress{
+    width: 50%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sign-progress hr{
+    width: 100%;
+    border: 3px solid #0352a6;
+    border-radius: 25px;
+}
+
+.sign-indicator{
+    font-size: 20px;
+    font-weight: bold;
+    color: #0352a6;
+}
+
+@media (max-width: 800px){
+    .view-container{
+        flex-direction: column;
+    }
+
+    .petition-content{
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .sidebar{
+        width: 100%;
+        border-left: none;
+        border-top: 3px solid #0352a6;
+        border-bottom: 3px solid #0352a6;
+        padding: 10px 0;
+        gap: 5px;
+    }
+}
