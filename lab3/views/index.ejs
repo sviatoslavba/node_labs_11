@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>УСІ Петиції</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">УСІ</a>
+            <a href="my-petitions.ejs">Мої петиції</a>
+            <a href="completed-petitions.ejs">Завершені</a>
+        </nav>
+        <button class="create-btn">Створити петицію</button>
+    </header>
+
+    <main>
+        <div class="search-bar">
+            <input type="text" placeholder="Пошук петиції...">
+            <button>Знайти</button>
+        </div>
+
+        <div class="petitions-list">
+            <% petitions.forEach(petition => { %>
+                <div class="petition-card">
+                    <div class="petition-text">
+                        <h3><%= petition.title %></h3>
+                        <p><%= petition.text %></p>
+                        <div class="petition-info">
+                            <button class="details-btn" data-id="<%=petition.id %>">Деталі</button>
+                        </div>
+                    </div>
+                    <div class="petition-meta">
+                        <span class="petition-votes"><%= petition.petition_current %> / 25 000</span>
+                        <span class="petition-expiry">До <%= petition.expiry_date %></span>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+    <script src="/script.js"></script>
+</body>
+</html>

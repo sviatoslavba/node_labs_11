@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "author_id": 2,
+    "title": "Petition Title",
+    "text": "This is text for pettition",
+    "petition_current": 6237,
+    "creation_date": 1742992223,
+    "expiry_date": 1742992223
+  },
+  {
+    "id": 2,
+    "author_id": 2,
+    "title": "Petition Title",
+    "text": "This is text for pettition 2",
+    "petition_current": 4566,
+    "creation_date": 1742992223,
+    "expiry_date": 1742992223
+  },
+  {
+    "id": 3,
+    "author_id": 2,
+    "title": "Petition Title",
+    "text": "This is text for pettition 3 ",
+    "petition_current": 1233,
+    "creation_date": 1742992223,
+    "expiry_date": 1742992223
+  }
+]
+

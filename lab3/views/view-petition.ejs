@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="petition-styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/petition-styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <title>Створити петицію</title>
 </head>
 <body>
     <header class="main-header">
-        <h1><%=PETITION_TITLE%></h1>
+        <h1><%=title%></h1>
         <button  class="back-icon"><i class="bi bi-x-circle"></i></button>
     </header>
     <main>
         <div class="view-container">
             <div class="petition-content">
                 <p>
-                    <%=PETITION_TEXT%>
+                    <%=text%>
                 </p>
             </div>
             <div class="sidebar">
-                <p class="sidebar-info"><%=PETITION_AUTHOR%></p>
+                <p class="sidebar-info"><%=author_id%></p>
                 <div class="sign-progress">
-                    <p class="sign-indicator"><%=PETITION_CURRENT%></p>
+                    <p class="sign-indicator"><%=petition_current%></p>
                     <hr>
                     <p class="sign-indicator">25000</p>
                 </div>
-                <p class="sidebar-info">До: <%=PETITION_END_DATE%></p>
+                <p class="sidebar-info">До: <%=expiry_date%></p>
             </div>
         </div>
     </main>
