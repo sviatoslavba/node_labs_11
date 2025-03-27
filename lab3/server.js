@@ -15,10 +15,12 @@ app.use(morgan('dev'));
 
 const petitions = JSON.parse(fs.readFileSync(path.join(__dirname, 'petitions.json'), 'utf8'));
 
-app.get("/api/petitions", (req, res) => {
+app.get(["/","/api/petitions"], (req, res) => {
     res.render('index', {petitions});
 
 })
+
+
 
 
 
