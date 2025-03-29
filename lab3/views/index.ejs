@@ -9,17 +9,17 @@
 <body>
     <header>
         <nav>
-            <a href="index.html">УСІ</a>
-            <a href="my-petitions.ejs">Мої петиції</a>
-            <a href="completed-petitions.ejs">Завершені</a>
+            <a class ="back-to-all" href="/api/petitions">УСІ</a>
+            <a class = "my-petitions" href= "my-petitions.ejs">Мої петиції</a>
+            <a class = "completed-petitions" href="completed-petitions.ejs">Завершені</a>
         </nav>
         <button class="create-btn">Створити петицію</button>
     </header>
 
     <main>
         <div class="search-bar">
-            <input type="text" placeholder="Пошук петиції...">
-            <button>Знайти</button>
+            <input type="text" id="searchInput" placeholder="Пошук петиції...">
+            <button class = "search-btn">Знайти</button>
         </div>
 
         <div class="petitions-list">

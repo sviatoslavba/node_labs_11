@@ -25,6 +25,32 @@
     "petition_current": 1233,
     "creation_date": 1742992223,
     "expiry_date": 1742992223
+  },
+  {
+    "id": 4,
+    "author_id": 2,
+    "title": "This petition for searching test",
+    "text": "This is text for pettition 3 ",
+    "petition_current": 1233,
+    "creation_date": 1742992223,
+    "expiry_date": 1742992223
+  },
+  {
+    "id": 5,
+    "author_id": 8,
+    "title": "Привет",
+    "text": "Пока",
+    "petition_current": 0,
+    "creation_date": "2025-03-29T12:38:12.582Z",
+    "expiry_date": "2025-04-29T11:38:12.582Z"
+  },
+  {
+    "id": 6,
+    "author_id": 7,
+    "title": "Сабака укусила хвост",
+    "text": "Хвост",
+    "petition_current": 0,
+    "creation_date": "2025-03-29T12:51:35.058Z",
+    "expiry_date": "2025-04-29T11:51:35.058Z"
   }
 ]
-
