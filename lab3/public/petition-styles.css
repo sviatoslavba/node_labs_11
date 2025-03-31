@@ -76,6 +76,15 @@ main{
 .action-btn:hover {
     background: #0056b3;
 }
+.vote-btn{
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+.vote-btn:hover{
+    background: #0056b3;
+}
 
 .cansel-btn{
     background: none;

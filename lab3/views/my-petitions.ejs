@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мої петиції</title>
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.ejs">УСІ</a>
-            <a href="my-petitions.html">Мої петиції</a>
+            <a href="/">УСІ</a>
+            <a href="my-petitions.ejs">Мої петиції</a>
             <a href="completed-petitions.ejs">Завершені</a>
         </nav>
         <button class="create-btn">Створити петицію</button>
@@ -23,23 +23,28 @@
         </div>
 
         <div class="petitions-list">
-
-            <div class="petition-card">
-                <div class="petition-text">
-                    <h3><%=PETITION_TITLE%></h3>
-                    <p><%=PETITION_TEXT%></p>
-                    <div class="petition-info">
-                        <button class="details-btn">Деталі</button>
-                        <button class="delete-btn">Видалити петицію</button>
+            <% if (usersPetitions.length > 0) { %>
+            <% usersPetitions.forEach(petition => { %>
+                <div class="petition-card">
+                    <div class="petition-text">
+                        <h3><%= petition.title %></h3>
+                        <p><%= petition.text %></p>
+                        <div class="petition-info">
+                            <button class="details-btn" data-id="<%=petition.id%>">Деталі</button>
+                            <button class="delete-btn">Видалити петицію</button>
+                        </div>
+                    </div>
+                    <div class="petition-meta">
+                        <span class="petition-votes"><%= petition.petition_current %> / 25 000</span>
+                        <span class="petition-expiry">До <%= petition.expiry_date %></span>
                     </div>
                 </div>
-                <div class="petition-meta">
-                    <span class="petition-votes"><%=PETITION_CURRENT%> / 25 000</span>
-                    <span class="petition-expiry">До <%=PETITION_END_DATE%></span>
-                </div>
-            </div>
-
+            <% }); %>
+            <% } else { %>
+                <p>У вас ще немає створених петицій.</p> <!-- ✅ Сообщение, если нет петиций -->
+            <% } %>
         </div>
     </main>
+    <script src="/script.js"></script>
 </body>
 </html>

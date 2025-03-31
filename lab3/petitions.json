@@ -4,27 +4,45 @@
     "author_id": 2,
     "title": "Petition Title",
     "text": "This is text for pettition",
-    "petition_current": 6237,
+    "petition_current": 6238,
     "creation_date": 1742992223,
-    "expiry_date": 1742992223
+    "expiry_date": 1742992223,
+    "voters": [
+      2,
+      7,
+      9
+    ],
+    "status": "In_Progress"
   },
   {
     "id": 2,
     "author_id": 2,
     "title": "Petition Title",
     "text": "This is text for pettition 2",
-    "petition_current": 4566,
+    "petition_current": 4567,
     "creation_date": 1742992223,
-    "expiry_date": 1742992223
+    "expiry_date": 1742992223,
+    "voters": [
+      2,
+      7,
+      9
+    ],
+    "status": "In_Progress"
   },
   {
     "id": 3,
     "author_id": 2,
     "title": "Petition Title",
     "text": "This is text for pettition 3 ",
-    "petition_current": 1233,
+    "petition_current": 1234,
     "creation_date": 1742992223,
-    "expiry_date": 1742992223
+    "expiry_date": 1742992223,
+    "voters": [
+      2,
+      7,
+      9
+    ],
+    "status": "In_Progress"
   },
   {
     "id": 4,
@@ -33,24 +51,66 @@
     "text": "This is text for pettition 3 ",
     "petition_current": 1233,
     "creation_date": 1742992223,
-    "expiry_date": 1742992223
+    "expiry_date": 1742992223,
+    "voters": [
+      2,
+      7
+    ],
+    "status": "In_Progress"
   },
   {
     "id": 5,
     "author_id": 8,
     "title": "Привет",
     "text": "Пока",
-    "petition_current": 0,
+    "petition_current": 3,
     "creation_date": "2025-03-29T12:38:12.582Z",
-    "expiry_date": "2025-04-29T11:38:12.582Z"
+    "expiry_date": "2025-04-29T11:38:12.582Z",
+    "voters": [
+      2,
+      7,
+      6,
+      9,
+      8
+    ],
+    "status": "In_Progress"
   },
   {
     "id": 6,
     "author_id": 7,
     "title": "Сабака укусила хвост",
     "text": "Хвост",
-    "petition_current": 0,
+    "petition_current": 1,
     "creation_date": "2025-03-29T12:51:35.058Z",
-    "expiry_date": "2025-04-29T11:51:35.058Z"
+    "expiry_date": "2025-04-29T11:51:35.058Z",
+    "voters": [
+      2,
+      7,
+      8
+    ],
+    "status": "In_Progress"
+  },
+  {
+    "id": 7,
+    "author_id": 2,
+    "title": "123",
+    "text": "123123",
+    "petition_current": 1,
+    "creation_date": "2025-03-30",
+    "expiry_date": "2025-04-30",
+    "voters": [
+      2,
+      9
+    ],
+    "status": "In_Progress"
+  },
+  {
+    "id": 8,
+    "author_id": 9,
+    "title": "Петиція",
+    "text": "Петиція",
+    "petition_current": 0,
+    "creation_date": "2025-03-31",
+    "expiry_date": "2025-05-01"
   }
 ]
