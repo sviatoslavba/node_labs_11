@@ -11,7 +11,7 @@
         <nav>
             <a class ="back-to-all" href="/api/petitions">УСІ</a>
             <a class = "my-petitions" href= "/api/my-petitions">Мої петиції</a>
-            <a class = "completed-petitions" href="completed-petitions.ejs">Завершені</a>
+            <a class = "completed-petitions" href="/api/completed-petitions">Завершені</a>
         </nav>
         <button class="create-btn">Створити петицію</button>
         <button id="logout-btn">Увійти</button>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="petition-meta">
-                        <span class="petition-votes"><%= petition.petition_current %> / 25 000</span>
+                        <span class="petition-votes"><%= petition.petition_current %> / 25000</span>
                         <span class="petition-expiry">До <%= petition.expiry_date %></span>
                     </div>
                 </div>

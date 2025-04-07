@@ -4,85 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Завершені</title>
-    <link rel="stylesheet" href="../public/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.ejs">УСІ</a>
-            <a href="my-petitions.ejs">Мої петиції</a>
-            <a href="completed-petitions.html">Завершені</a>
+            <a href="/api/petitions">УСІ</a>
+            <a href="/api/my-petitions">Мої петиції</a>
+            <a href="/api/completed-petitions">Завершені</a>
         </nav>
         <button class="create-btn">Створити петицію</button>
     </header>
 
     <main>
         <div class="search-bar">
-            <input type="text" placeholder="Пошук петиції...">
+            <input type="text" id="searchInput" placeholder="Пошук петиції...">
             <button>Знайти</button>
         </div>
 
         <div class="petitions-list">
-            <div class="petition-card">
-                <div class="petition-text">
-                    <h3><%=PETITION_TITLE%></h3>
-                    <p><%=PETITION_TEXT%></p>
-                    <div class="petition-info">
-                        <button class="details-btn">Деталі</button>
+            <% petitions.forEach(petition => { %>
+                <div class="petition-card">
+                    <div class="petition-text">
+                        <h3><%= petition.title %></h3>
+                        <p><%= petition.text %></p>
+                        <div class="petition-info">
+                            <button class="details-btn" data-id="<%=petition.id %>">Деталі</button>
+                        </div>
+                    </div>
+                    <div class="petition-meta">
+                        <span class="petition-votes"><%= petition.petition_current %> / 25000</span>
+                        <span class="petition-expiry">До <%= petition.expiry_date %></span>
+                        <span class="petition-status <%= petition.status %>">
+                         <%= statusMap[petition.status] %> </span>
                     </div>
                 </div>
-                <div class="petition-meta">
-                    <span class="petition-votes"><%=PETITION_CURRENT%> / 25 000</span>
-                    <span class="petition-expiry">До <%=PETITION_END_DATE%></span>
-                    <span class="petition-status on-review">На розгляді</span> 
-                </div>
-            </div>
-
-            <div class="petition-card">
-                <div class="petition-text">
-                    <h3><%=PETITION_TITLE%></h3>
-                    <p><%=PETITION_TEXT%></p>
-                    <div class="petition-info">
-                        <button class="details-btn">Деталі</button>
-                    </div>
-                </div>
-                <div class="petition-meta">
-                    <span class="petition-votes"><%=PETITION_CURRENT%>/ 25 000</span>
-                    <span class="petition-expiry">До <%=PETITION_END_DATE%></span>
-                    <span class="petition-status accepted">Прийнято</span> 
-                </div>
-            </div>
-
-            <div class="petition-card">
-                <div class="petition-text">
-                    <h3>Інша петиція</h3>
-                    <p>Опис ще однієї петиції...</p>
-                    <div class="petition-info">
-                        <button class="details-btn">Деталі</button>
-                    </div>
-                </div>
-                <div class="petition-meta">
-                    <span class="petition-votes">8 500 / 25 000</span>
-                    <span class="petition-expiry">До 01.04.2025</span>
-                    <span class="petition-status rejected">Відхилено</span> 
-                </div>
-            </div>
-
-            <div class="petition-card">
-                <div class="petition-text">
-                    <h3>Інша петиція</h3>
-                    <p>Опис ще однієї петиції...</p>
-                    <div class="petition-info">
-                        <button class="details-btn">Деталі</button>
-                    </div>
-                </div>
-                <div class="petition-meta">
-                    <span class="petition-votes">8 500 / 25 000</span>
-                    <span class="petition-expiry">До 15.03.2025</span>
-                    <span class="petition-status expired">Термін вийшов</span> 
-                </div>
-            </div>
-
+            <% }); %>
         </div>
     </main>
     <script src="/script.js"></script>

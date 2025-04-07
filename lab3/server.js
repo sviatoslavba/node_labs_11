@@ -17,29 +17,34 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret: "my_secret_key",
+    secret: 'super-secret-key',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24,
+        sameSite: "strict",
+        secure: false
+    }
 }));
+
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 
 
 const petitions = JSON.parse(fs.readFileSync(path.join(__dirname, 'petitions.json'), 'utf8'));
 
-function getUsers() {
-    const data = fs.readFileSync("data/users.json", "utf8");
-    return JSON.parse(data);
-}
+app.use((req, res, next) => {
+    changePetStatus(petitions);
+    next();
+});
 
-
-function saveUsers(users) {
-    fs.writeFileSync("data/users.json", JSON.stringify(users, null, 2));
-}
+const usersPath = path.join(__dirname, "data/users.json");
+const getUsers = () => JSON.parse(fs.readFileSync(usersPath, "utf8"));
+const saveUsers = (users) => fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
 
 function getLastUserId() {
     const users = getUsers();
@@ -48,6 +53,26 @@ function getLastUserId() {
     return lastUser.id; // Повертаємо останнє id
 }
 
+const changePetStatus =  function(petitions){
+    const now = Date.now();
+    const random = Math.floor(Math.random() * 3);
+    const statuses  = ['rejected','accepted','on-review','expired',"In_Progress"];
+
+
+    petitions.forEach(petition => {
+        if(petition.status === "In_Progress"){
+            if(petition.petition_current >= 25000){
+                petition.status = statuses[random];
+            }
+            else if(petition.expiry_date < now ){
+                petition.status = statuses[3];
+            }
+            else{
+                petition.status = "In_Progress"
+            }
+        }
+    });
+}
 app.get("/register", (req, res) => {
     res.render("register");
 })
@@ -61,9 +86,9 @@ app.post("/register", (req, res) => {
         return res.json({ success: false, message: "Користувач вже існує!" });
     }
 
-    // Створюємо нового користувача з ітераційним id
+
     const newUser = {
-        id: getLastUserId() + 1, // Новий id буде більше на 1 від останнього
+        id: getLastUserId() + 1,
         username,
         password
     };
@@ -79,8 +104,8 @@ app.post("/login", (req, res) => {
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
-        req.session.user = { id: user.id, username: user.username };
-        res.redirect("/"); // Перенаправлення на головну сторінку після успішної авторизації
+        req.session.user = { id: user.id, username: user.username, password:user.password };
+        res.redirect("/");
     } else {
         res.send("❌ Невірний логін або пароль. <a href='/login'>Спробувати ще раз</a>");
     }
@@ -107,17 +132,10 @@ app.get("/logout", (req, res) => {
     });
 });
 
-app.get("/my-petitions.html", (req, res) => {
-    if (!req.session.user) {
-        return res.redirect("/login");
-    }
-    res.sendFile(path.join(__dirname, "public", "my-petitions.html"));
-});
-
 
 app.get(["/","/api/petitions"], (req, res) => {
-    res.render('index', {petitions});
-
+    const activePetitions = petitions.filter(petition =>petition.status ==="In_Progress");
+    res.render('index', {petitions:activePetitions});
 
 })
 
@@ -147,7 +165,6 @@ app.patch("/api/petition-overview/:id", (req, res) => {
     if (!req.session.user) {
         return res.redirect("/login");
     }
-
     const userId = req.session.user.id;
     const petition = petitions.find(p => p.id === req.params.id * 1);
 
@@ -177,12 +194,26 @@ app.patch("/api/petition-overview/:id", (req, res) => {
     });
 });
 
+const statusMap = {
+    "rejected": "Відхилено",
+    "accepted": "Прийнято",
+    "on-review": "На розгляді",
+    "expired": "Термін вийшов"
+};
+
+app.get("/api/completed-petitions",(req, res)=>{
+    const labels = ["На розгляді","Прийнято","Відхилено","Термін вийшов"]
+    const completedPetitions = petitions.filter(petition=>petition.status !== "In_Progress")
+    res.render("completed-petitions",{
+        petitions:completedPetitions,
+        statusMap
+    });
+});
 
 app.get("/api/my-petitions",(req,res)=>{
-    if(!req.session.user){
-        return  res.redirect("/login");
+    if (!req.session.user) {
+        return res.redirect("/login");
     }
-
     const sessionId = req.session.user.id;
     const usersPetitions = petitions.filter(usersPetitions=>usersPetitions.author_id === sessionId);
 
@@ -223,7 +254,8 @@ app.post("/api/petition-creation",(req, res) => {
         text,
         petition_current:0,
         creation_date:formatted_creation_date,
-        expiry_date:formatted_expiry_date
+        expiry_date:formatted_expiry_date,
+        status:"In_Progress"
 
     }
     petitions.push(petition);
@@ -247,6 +279,39 @@ app.post("/api/petition-creation",(req, res) => {
     });
 });
 
+app.get("/api/petition-deletion", (req, res) => {
+    const petitionID = req.query.id;
+    res.render("delete-form",{petitionID});
 
+})
+
+app.delete("/api/delete",(req,res)=>{
+    console.log("От клиента пришёл пароль:", req.body.password);
+
+    if(!req.session.user){
+        return res.status(401).send({
+            message:"Авторизуйтеся для видалення петиції"
+        })
+    }
+    const {password, petitionID} = req.body
+    console.log(password);
+    const user = req.session.user;
+
+    if(user.password !== password){
+        return res.status(403).json({
+            status:'fail',
+            message:"Невірний пароль"
+        })
+    }
+
+    const index = petitions.findIndex(p => p.id === petitionID * 1);
+    if (index === -1) {
+        return res.status(404).json({ message: "Петиція не знайдена" });
+    }
+
+    petitions.splice(index,1);
+    fs.writeFileSync("petitions.json", JSON.stringify(petitions, null, 2));
+    return res.status(200).json({ message: "Петиція видалена" });
+});
 
 app.listen(PORT,()=>console.log(`Server started on ${PORT}`));

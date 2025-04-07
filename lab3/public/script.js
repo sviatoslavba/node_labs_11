@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch(`/api/petition-overview/${petitionId}`, {
                     method: "PATCH",
-                    headers: { "Content-Type": "application/json" }
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include"
                 });
 
                 console.log("Статус відповіді:", response.status);
@@ -86,11 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch("/api/petition-creation", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({title, text})
+                body: JSON.stringify({title, text}),
+                credentials: "include"
             });
 
             if (!response.ok) {
-                alert("Сталася помилка! Перевірте консоль.");
+                alert("Авторизуйтесь для створення петиції!");
                 console.error(await response.text());
                 return;
             }
@@ -106,7 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch("/logout", {
                     method: "GET",
-                    credentials: "same-origin"
+                    credentials: "include"
+
                 });
 
                 if (response.ok) {
@@ -125,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch("/check-auth", {
                 method: "GET",
-                credentials: "same-origin"
+                credentials: "include"
             });
 
             const data = await response.json();
@@ -156,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch("/logout", {
                 method: "GET",
-                credentials: "same-origin"
+                credentials: "include"
             });
 
             if (response.ok) {
@@ -186,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch("/login", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({username, password})
+                body: JSON.stringify({username, password}),
+                credentials: "include"
             });
 
             const data = await response.json();
@@ -219,7 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch("/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, password }),
+                credentials: "include"
             });
 
             const result = await response.json();
@@ -234,17 +239,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const casualBtn= document.querySelector(".form-btn.casual-btn");
+    if(casualBtn){
+        casualBtn.addEventListener("click",()=>{
+            window.location.href="/api/petitions";
+        })
+    }
+
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            window.location.assign(`/api/petition-deletion?id=${id}`);
+        });
+    });
+
+    const delPetBtn = document.querySelector(".form-btn.form-delete-btn");
+    if(delPetBtn){
+        delPetBtn.addEventListener("click", async (event) => {
+            event.preventDefault()
+
+            const password = document.getElementById("password").value.trim();
+            const petitionID = delPetBtn.dataset.id;
+
+            const response = await fetch("/api/delete", {
+                method: "DELETE",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({password, petitionID}),
+                credentials: "include"
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert("Петиція видалена");
+                window.location.assign("/api/my-petitions");
+            }
+
+        });
+    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
