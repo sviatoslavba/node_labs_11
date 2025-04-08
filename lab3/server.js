@@ -44,7 +44,13 @@ app.use((req, res, next) => {
 
 const usersPath = path.join(__dirname, "data/users.json");
 const getUsers = () => JSON.parse(fs.readFileSync(usersPath, "utf8"));
-const saveUsers = (users) => fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+
+const saveUsers = (users)=>{
+    return fs.promises.writeFile(usersPath, JSON.stringify(users, null, 2))
+        .then(()=>console.log("saved users"))
+        .catch((err)=>console.error("Error saving users",err));
+};
+
 
 function getLastUserId() {
     const users = getUsers();

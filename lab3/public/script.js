@@ -136,15 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const logoutButton = document.getElementById("logout-btn");
 
             if (data.isAuthenticated) {
-                // Якщо користувач авторизований, змінюємо текст на "Вийти"
+
                 logoutButton.textContent = "Вийти";
-                logoutButton.removeEventListener("click", loginHandler); // Видаляємо стару подію для входу
-                logoutButton.addEventListener("click", logoutHandler);  // Додаємо нову подію для виходу
+                logoutButton.removeEventListener("click", loginHandler);
+                logoutButton.addEventListener("click", logoutHandler);
             } else {
-                // Якщо користувач не авторизований, змінюємо текст на "Увійти"
+
                 logoutButton.textContent = "Увійти";
-                logoutButton.removeEventListener("click", logoutHandler); // Видаляємо стару подію для виходу
-                logoutButton.addEventListener("click", loginHandler);  // Додаємо нову подію для входу
+                logoutButton.removeEventListener("click", logoutHandler);
+                logoutButton.addEventListener("click", loginHandler);
             }
         } catch (error) {
             console.error("Помилка при перевірці авторизації:", error);
