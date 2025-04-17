@@ -119,6 +119,20 @@ nav a {
     font-weight: bold;
 }
 
+.logout-btn{
+    background: white;
+    color: #007bff;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logout-btn:hover{
+    background: #f0f0f0;
+}
 .create-btn:hover {
     background: #f0f0f0;
 }
