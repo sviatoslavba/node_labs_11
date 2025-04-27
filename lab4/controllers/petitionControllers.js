@@ -293,7 +293,7 @@ exports.deletePetition = async (req, res) => {
             return res.status(404).json({ message: "Петиція не знайдена або не належить вам" });
         }
 
-        // Delete petition (foreign key constraints will handle signatures)
+        // Delete petition 
         await db.query('DELETE FROM petitions WHERE id = ?', [petitionID]);
         
         return res.status(200).json({ message: "Петиція видалена" });
