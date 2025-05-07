@@ -1,0 +1,223 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.exit-buttons button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exit-buttons button:hover {
+    background: #e65c00;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 900px;
+    gap: 20px;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    flex: 2;
+}
+
+.user-info h2 {
+    margin: 5px 0;
+}
+
+.email {
+    color: #555;
+    font-size: 14px;
+}
+
+.user-stats {
+    flex: 2;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-left: auto;
+}
+
+.profile-actions a {
+    text-decoration: none;
+}
+
+.profile-actions button {
+    width: 160px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: background 0.3s, opacity 0.3s;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.settings-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.settings-btn:hover {
+    background-color: #1e7e34;
+}
+
+.favorite-books,
+.user-reviews {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    width: 900px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+    gap: 15px;
+}
+
+.book-item img {
+    width: 80px;
+    height: 110px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.book-info {
+    font-size: 14px;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+.remove-favorite {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.remove-favorite:hover {
+    background: #c82333;
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.edit-review, .delete-review {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.edit-review {
+    background: #ffc107;
+    color: black;
+}
+
+.edit-review:hover {
+    background: #e0a800;
+}
+
+.delete-review {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-review:hover {
+    background: #c82333;
+}

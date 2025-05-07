@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-buttons button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background: #e65c00;
+}
+
+.book-container {
+    display: flex;
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover img {
+    width: 200px;
+    border-radius: 5px;
+}
+
+.book-info {
+    margin-left: 20px;
+}
+
+.book-info h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.book-info h2 {
+    font-size: 18px;
+    color: #666;
+}
+
+.description {
+    margin: 15px 0;
+}
+
+.rating {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.favorite-btn {
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorite-btn:hover {
+    background: #d8356a;
+}
+
+.reviews {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review p {
+    margin: 5px 0;
+}
+
+.review-form {
+    margin-top: 15px;
+}
+
+.review-form textarea {
+    width: 100%; 
+    max-width: 880px;
+    min-height: 80px; 
+    max-height: 200px; 
+    resize: vertical; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    overflow-y: auto; 
+}
+
+.review-form button {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.review-form button:hover {
+    background: #162a46;
+}

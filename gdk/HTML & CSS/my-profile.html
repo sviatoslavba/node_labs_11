@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="stylesheet" href="my-profile-styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">📚 Мій профіль</div>
+    <div class="exit-buttons">
+        <button class="exit">Вийти з облікового запису</button>
+    </div>
+</header>
+
+<main class="profile-container">
+
+    <div class="profile-card">
+        <div class="avatar">
+            <img src="avatar.png" alt="Аватар користувача">
+        </div>
+        
+        <div class="user-info">
+            <h2>Лодатко Олександр</h2>
+            <p class="email">email@example.com</p>
+        </div>
+
+        <div class="user-stats">
+            <p>З нами з: <strong>2022 року</strong></p>
+            <p>Вибраних книг: <strong>24</strong></p>
+            <p>Написано відгуків: <strong>12</strong></p>
+        </div>
+
+        <div class="profile-actions">
+            <a href="edit-profile.html"><button class="edit-btn">Редагувати профіль</button></a>
+            <a href="settings-profile.html"><button class="settings-btn">Налаштування</button></a>
+        </div>
+    </div>
+
+    <section class="favorite-books">
+        <h2>Мої обрані книжки</h2>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="cover1.jpg" alt="Назва книги 1">
+                <div class="book-info">
+                    <p><strong>📖 Математичний аналіз. Том 1</strong></p>
+                    <p>Автор: В. А. Зорич</p>
+                    <p>Рік написання: 1995</p>
+                    <p>Рік видання: 1998</p>
+                    <p>Місто видання: Київ</p>
+                    <p>Видавництво: Видавничий дім</p>
+                    <button class="remove-favorite">Видалити з обраного</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-reviews">
+        <h2>Мої відгуки</h2>
+        <div class="review-list">
+            <div class="review-item">
+                <p><strong>⭐ "Дуже цікава книга! Раджу всім."</strong></p>
+                <p>Книга: Назва книги 1</p>
+                <div class="review-actions">
+                    <button class="edit-review">Редагувати відгук</button>
+                    <button class="delete-review">Видалити</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

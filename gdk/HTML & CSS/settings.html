@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Налаштування профілю</title>
+    <link rel="stylesheet" href="edit-settings-styles.css">
+</head>
+<body>
+
+    <header>Налаштування профілю</header>
+
+    <div class="form-container">
+        <h2>Налаштування</h2>
+        <form class="auth-form">
+            <label for="language">Оберіть мову:</label>
+            <select id="language" name="language">
+                <option value="uk">Українська</option>
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
+
+            <label for="password">Новий пароль:</label>
+            <input type="password" id="password" name="password" placeholder="Введіть новий пароль">
+
+            <label for="confirm-password">Підтвердити пароль:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторіть пароль">
+
+            <label for="notifications">Отримувати сповіщення:</label>
+            <select id="notifications" name="notifications">
+                <option value="on">Так</option>
+                <option value="off">Ні</option>
+            </select>
+
+            <button type="submit" class="btn">Зберегти налаштування</button>
+        </form>
+    </div>
+
+</body>
+</html>
