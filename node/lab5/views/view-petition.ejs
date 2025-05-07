@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/petition-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Створити петицію</title>
+</head>
+<body>
+    <header class="main-header">
+        <h1><%=title%></h1>
+        <button  class="back-icon"><i class="bi bi-x-circle"></i></button>
+    </header>
+    <main>
+        <div class="view-container">
+            <div class="petition-content">
+                <p>
+                    <%=text%>
+                </p>
+            </div>
+            <div class="sidebar">
+                <p class="sidebar-info"><%=author_username%></p>
+                <div class="sign-progress">
+                    <p class="sign-indicator"><%=petition_current%></p>
+                    <hr>
+                    <p class="sign-indicator">25000</p>
+                </div>
+                <p class="sidebar-info">До: <%=expiry_date%></p>
+            </div>
+        </div>
+    </main>
+    <div class="petition-buttons">
+        <button class="btn vote-btn" data-petition-id="<%=id%>">Підписати петицію</button>
+        <button class="btn cansel-btn">Скасувати</button>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
