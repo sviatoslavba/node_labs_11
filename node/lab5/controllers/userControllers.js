@@ -8,8 +8,12 @@ exports.getRegister = (req, res) => {
 exports.userRegistration = async (req, res) => {
   const { username, password, confirmPassword } = req.body;
   
+  // Додатковий вивід для дебагінгу
+  console.log('Received data:', { username, password, confirmPassword });
+
   if (password !== confirmPassword) {
-    return res.json({ 
+    console.log('Password mismatch:', password, '!=', confirmPassword);
+    return res.status(400).json({ 
       success: false, 
       message: "Паролі не співпадають!" 
     });
@@ -25,7 +29,7 @@ exports.userRegistration = async (req, res) => {
     
     if (existingUser) {
       await t.rollback();
-      return res.json({ 
+      return res.status(400).json({ 
         success: false, 
         message: "Користувач вже існує!" 
       });
@@ -38,16 +42,20 @@ exports.userRegistration = async (req, res) => {
 
     await t.commit();
     
-    res.json({ 
+    return res.status(201).json({ 
       success: true, 
-      message: "Реєстрація успішна!" 
+      message: "Реєстрація успішна!",
+      user: {
+        id: newUser.id,
+        username: newUser.username
+      }
     });
   } catch (err) {
     await t.rollback();
-    console.error(err);
-    res.status(500).json({ 
+    console.error('Registration error:', err);
+    return res.status(500).json({ 
       success: false, 
-      message: "Помилка сервера" 
+      message: "Помилка сервера: " + err.message 
     });
   }
 };

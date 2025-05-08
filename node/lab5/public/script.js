@@ -212,36 +212,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const regForm = document.getElementById("register-form");
-    if(regForm){
+    const togglePasswordButtons = document.querySelectorAll(".toggle-password");
+    
+    // Перемикач видимості паролю
+    togglePasswordButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const input = this.previousElementSibling;
+            const type = input.getAttribute("type") === "password" ? "text" : "password";
+            input.setAttribute("type", type);
+        });
+    });
+
+    if (regForm) {
         regForm.addEventListener("submit", async (event) => {
-            event.preventDefault()
+            event.preventDefault();
+            
+            const formData = {
+                username: regForm.username.value.trim(),
+                password: regForm.password.value,
+                confirmPassword: regForm.confirmPassword.value
+            };
 
-            const username = document.getElementById("login").value.trim();
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirm-password").value;
             const message = document.getElementById("message");
-
-            if (password !== confirmPassword) {
-                message.textContent = " Паролі не співпадають!";
+            
+            // Клієнтська перевірка паролів
+            if (formData.password !== formData.confirmPassword) {
+                message.textContent = "Паролі не співпадають!";
                 message.style.color = "red";
                 return;
             }
 
-            const response = await fetch("/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
-                credentials: "include"
-            });
+            try {
+                const response = await fetch("/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-            const result = await response.json();
+                const result = await response.json();
 
-            if (result.success) {
-                message.textContent = " Реєстрація успішна! Перенаправлення...";
+                if (!response.ok) {
+                    throw new Error(result.message || "Помилка реєстрації");
+                }
+
+                message.textContent = "Реєстрація успішна! Перенаправлення...";
                 message.style.color = "green";
-                setTimeout(() => { window.location.href = "/login"; }, 2000);
-            } else {
-                message.textContent = " " + result.message;
+                setTimeout(() => {
+                    window.location.href = "/login";
+                }, 2000);
+            } catch (error) {
+                console.error("Помилка реєстрації:", error);
+                message.textContent = error.message;
                 message.style.color = "red";
             }
         });
