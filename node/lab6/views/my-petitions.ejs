@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої петиції</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="back-to-all" href="/api/petitions">УСІ</a>
+            <a class="my-petitions" href="/api/my-petitions">Мої петиції</a>
+            <a class="completed-petitions" href="/api/completed-petitions">Завершені</a>
+        </nav>
+        <div class="header-buttons">
+            <button class="create-btn">Створити петицію</button>
+            <button class="logout-btn" id="logout-btn">Увійти</button>
+        </div>
+    </header>
+    <main>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Пошук петиції...">
+            <button>Знайти</button>
+        </div>
+
+        <div class="petitions-list">
+            <% if (usersPetitions.length > 0) { %>
+            <% usersPetitions.forEach(petition => { %>
+                <div class="petition-card">
+                    <div class="petition-text">
+                        <h3><%= petition.title %></h3>
+                        <p><%= petition.text %></p>
+                        <div class="petition-info">
+                            <button class="details-btn" data-id="<%=petition.id%>">Деталі</button>
+                            <button class="delete-btn" data-id="<%= petition.id %>">Видалити петицію</button>
+                        </div>
+                    </div>
+                    <div class="petition-meta">
+                        <span class="petition-votes"><%= petition.petition_current %> / 25 000</span>
+                        <span class="petition-expiry">До <%= petition.expiry_date %></span>
+                    </div>
+                </div>
+            <% }); %>
+            <% } else { %>
+                <p>У вас ще немає створених петицій.</p> <!-- ✅ Повідомлення, якщо немає петиції -->
+            <% } %>
+        </div>
+
+        <div class="pagination">
+            <% if (totalPages > 1) { %>
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <a href="/api/my-petitions?page=<%= i %>" class="<%= currentPage === i ? 'active' : '' %>"><%= i %></a>
+                <% } %>
+            <% } %>
+        </div>
+    </main>
+    <script src="/script.js"></script>
+</body>
+</html>
