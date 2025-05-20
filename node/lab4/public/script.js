@@ -68,9 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
+    const searchButton = document.getElementById('searchButton');
+    if (searchInput && searchButton) {
         const petitionCards = document.querySelectorAll('.petition-card');
-        searchInput.addEventListener('keyup', (event) => {
+
+        searchButton.addEventListener('click', (event) => {
             const searchIndex = searchInput.value.toLowerCase();
             petitionCards.forEach(card => {
                 const title = card.querySelector("h3").textContent.toLowerCase();
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
     const createBtn = document.querySelector(".btn.action-btn");
     if (createBtn) {
         createBtn.addEventListener("click", async (event) => {

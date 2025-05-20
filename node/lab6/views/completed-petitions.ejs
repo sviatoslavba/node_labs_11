@@ -21,7 +21,7 @@
     <main>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Пошук петиції...">
-            <button>Знайти</button>
+            <button  id="searchButton" >Знайти</button>
             <form id="filterForm" method="GET" action="/api/completed-petitions">
                 <select name="status" id="status" onchange="this.form.submit()">
                     <option value="" <%= !selectedStatus ? "selected" : "" %>>Усі</option>
